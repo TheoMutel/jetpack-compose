@@ -51,3 +51,11 @@ data class Acteur(
     val name: String,
     val profile_path: String? // URL de l'image du profil
 )
+@Serializable
+data class TMDBCredits(
+    val cast: List<Acteur> = emptyList()
+)
+@Serializable
+data class TMDBCredits2(
+    val cast: List<Acteur> = emptyList()
+)

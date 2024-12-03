@@ -3,6 +3,7 @@ package com.example.monprofil
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -163,6 +164,32 @@ class MainViewModel : ViewModel() {
             } catch (e: Exception) {
                 // Gérer l'erreur
                 acteurDetails.value = null
+            }
+        }
+    }
+    private val _movieCredits = MutableStateFlow<List<Acteur>?>(null)
+    val movieCredits: StateFlow<List<Acteur>?> = _movieCredits
+
+    fun fetchMovieCredits(movieId: Int) {
+        viewModelScope.launch {
+            try {
+                val response = api.getMovieCredits(movieId, api_key)
+                _movieCredits.value = response.cast
+            } catch (e: Exception) {
+                _movieCredits.value = null
+            }
+        }
+    }
+    private val _serieCredits = MutableStateFlow<List<Acteur>?>(null)
+    val serieCredits: StateFlow<List<Acteur>?> = _serieCredits
+
+    fun fetchSerieCredits(serieId: Int) {
+        viewModelScope.launch {
+            try {
+                val response = api.getSerieCredits(serieId, api_key)
+                _serieCredits.value = response.cast
+            } catch (e: Exception) {
+                _serieCredits.value = null
             }
         }
     }

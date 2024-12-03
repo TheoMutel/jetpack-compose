@@ -55,4 +55,16 @@ interface Api {
         @Path("person_id") acteurId: Int,
         @Query("api_key") apiKey: String
     ): Acteur
+
+    @GET("movie/{movie_id}/credits")
+    suspend fun getMovieCredits(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String
+    ): TMDBCredits
+
+    @GET("tv/{tv_id}/credits")
+    suspend fun getSerieCredits(
+        @Path("tv_id") serieId: Int,
+        @Query("api_key") apiKey: String
+    ): TMDBCredits2
 }
