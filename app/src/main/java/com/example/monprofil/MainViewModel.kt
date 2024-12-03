@@ -2,6 +2,7 @@ package com.example.monprofil
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.squareup.moshi.Moshi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -17,6 +18,7 @@ val retrofit = Retrofit.Builder()
 
 val api = retrofit.create(Api::class.java)
 
+@Suppress("UNREACHABLE_CODE")
 class MainViewModel : ViewModel() {
 
     val movies = MutableStateFlow<List<AfficheDeFilm>>(emptyList())
@@ -193,6 +195,20 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
+    fun fetchPlaylist(): Playlist {
+        val moshi = Moshi.Builder().build()
+        return moshi.adapter(Playlist::class.java).fromJson((playlistjson))!!
+    }
+
+    fun playlist(): String {
+        val crea = fetchPlaylist().creator
+      val test = fetchPlaylist().description
+        val id = fetchPlaylist().id
+        val collab = fetchPlaylist().collaborative
+        return test;
+    }
+
 }
 
 

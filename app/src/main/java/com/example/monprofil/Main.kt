@@ -2,7 +2,7 @@ package com.example.monprofil
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.Locale.filter
-/*
+
 open class Piece(val largeur: Float, val longueur: Float, val nom: String){
     fun surface(): Int {
         var result = 0;
@@ -11,7 +11,7 @@ open class Piece(val largeur: Float, val longueur: Float, val nom: String){
         return result;
     }
 }
-/*
+
 class Cuisine(largeur: Float, longueur: Float, nom: String) : Piece(largeur, longueur, nom){
 
 }
@@ -27,7 +27,7 @@ val list2 = MutableStateFlow<List<Salon>>(emptyList())
 
 fun parcourslist(){
 
-}*/
+}
 
 class Etudiant( val name: String, val promo: String, val matieres: List<String>)
 
@@ -45,4 +45,3 @@ fun main(){
     etudiants.groupBy { it.promo }.forEach { k,v -> println("clé: $k, ${v.map { it.name}}") }
    /* println(etudiants.sumOf { it.matieres })*/
 }
-*/
