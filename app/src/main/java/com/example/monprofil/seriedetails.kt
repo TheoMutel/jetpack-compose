@@ -1,5 +1,4 @@
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.content.MediaType.Companion.Image
 import androidx.compose.runtime.*
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.material3.*
@@ -9,7 +8,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
@@ -39,7 +37,7 @@ fun SerieDetailScreen(serieId: Int, viewModel: MainViewModel = viewModel()) {
                     .padding(paddingValues)
                     .padding(16.dp)
             ) {
-                // Affichage de l'image de la série
+
                 item {
                     val posterUrl = "https://image.tmdb.org/t/p/w500${serie.poster_path}"
                     Image(
@@ -54,7 +52,7 @@ fun SerieDetailScreen(serieId: Int, viewModel: MainViewModel = viewModel()) {
                     )
                 }
 
-                // Titre et synopsis
+
                 item {
                     Text(
                         text = serie.name,

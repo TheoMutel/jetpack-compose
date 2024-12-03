@@ -21,8 +21,6 @@ fun ActeurDetailScreen(acteurId: Int, viewModel: MainViewModel = viewModel()) {
     LaunchedEffect(acteurId) {
         viewModel.fetchActeurDetails(acteurId)
     }
-
-    // Observer l'état des détails de l'acteur
     val acteurDetails by viewModel.acteurDetails.collectAsState()
 
     Scaffold(
@@ -41,7 +39,7 @@ fun ActeurDetailScreen(acteurId: Int, viewModel: MainViewModel = viewModel()) {
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Affichage de l'image de l'acteur
+
                 val posterUrl = "https://image.tmdb.org/t/p/w500${acteur.profile_path}"
                 Image(
                     painter = rememberImagePainter(posterUrl),
@@ -64,7 +62,7 @@ fun ActeurDetailScreen(acteurId: Int, viewModel: MainViewModel = viewModel()) {
                 )
             }
         } ?: run {
-            // Message de chargement ou erreur
+
             Text(
                 text = "Chargement ou acteur introuvable",
                 style = MaterialTheme.typography.bodyMedium,

@@ -49,7 +49,7 @@ fun ProfileScreen(navController : NavController, innerPadding: PaddingValues, wi
             }
         }
         else -> {
-            // Colonne principale
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -69,12 +69,12 @@ fun ProfileScreen(navController : NavController, innerPadding: PaddingValues, wi
                         Texte()
                     }
 
-                    // Colonne droite
+
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        // Première ligne : réseaux et texte 2
+
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
@@ -84,7 +84,7 @@ fun ProfileScreen(navController : NavController, innerPadding: PaddingValues, wi
 
                         }
 
-                        // Deuxième ligne : bouton Demarrer
+
                         Demarrer(navController)
                     }
                 }

@@ -30,9 +30,9 @@ fun SerieScreen(viewModel: MainViewModel = viewModel(), searchQuery: String, nav
 
     LaunchedEffect(searchQuery) {
         if (searchQuery.isNotEmpty()) {
-            viewModel.searchSeries(searchQuery) // Recherche des séries en fonction du mot clé
+            viewModel.searchSeries(searchQuery)
         } else {
-            viewModel.getSeries() // Charger les séries si la recherche est vide
+            viewModel.getSeries()
         }
     }
 

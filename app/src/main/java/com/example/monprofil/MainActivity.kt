@@ -73,7 +73,7 @@ class MainActivity : ComponentActivity() {
                                     }
                                 },
                                 actions = {
-                                    // Bouton de recherche
+
                                     IconButton(onClick = {
                                         isSearching = !isSearching
                                         if (!isSearching) {
@@ -83,7 +83,7 @@ class MainActivity : ComponentActivity() {
                                         Icon(Icons.Filled.Search, contentDescription = "Rechercher")
                                     }
 
-                                    // Bouton de clear (pour effacer la recherche)
+
                                     if (isSearching && searchQuery.text.isNotEmpty()) {
                                         IconButton(onClick = {
                                             searchQuery = TextFieldValue("") // Effacer le texte de recherche

@@ -13,17 +13,17 @@ val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create())
     .build()
 
-// Création de l'instance de l'API
+
 val api = retrofit.create(Api::class.java)
 
 class MainViewModel : ViewModel() {
-    // Propriétés pour les films
+
     val movies = MutableStateFlow<List<AfficheDeFilm>>(emptyList())
 
-    // Propriétés pour les séries
+
     val series = MutableStateFlow<List<Serie>>(emptyList())
 
-    // Propriétés pour les acteurs
+
     val acteurs = MutableStateFlow<List<Acteur>>(emptyList())
 
     val api_key = "be1ca8af0da3936dcdb2aeaad464d374"
@@ -33,7 +33,7 @@ class MainViewModel : ViewModel() {
     val acteurDetails = MutableStateFlow<Acteur?>(null)
 
 
-    // Fonction pour récupérer les films populaires
+
     fun getMovies() {
         viewModelScope.launch {
             try {
@@ -97,7 +97,7 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    // Fonction pour récupérer les acteurs populaires
+
     fun getActeurs() {
         viewModelScope.launch {
             try {

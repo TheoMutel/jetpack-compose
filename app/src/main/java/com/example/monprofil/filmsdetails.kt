@@ -21,7 +21,7 @@ fun MovieDetailScreen(movieId: Int, viewModel: MainViewModel = viewModel()) {
         viewModel.fetchMovieDetails(movieId)
     }
 
-    // Observer l'état des détails du film
+
     val movieDetails by viewModel.movieDetails.collectAsState()
 
     Scaffold(
@@ -38,7 +38,7 @@ fun MovieDetailScreen(movieId: Int, viewModel: MainViewModel = viewModel()) {
                     .padding(paddingValues)
                     .padding(16.dp)
             ) {
-                // Affichage de l'image du film
+
                 item {
                     val posterUrl = "https://image.tmdb.org/t/p/w500${movie.poster_path}"
                     Image(
@@ -69,7 +69,7 @@ fun MovieDetailScreen(movieId: Int, viewModel: MainViewModel = viewModel()) {
                     )
                 }
 
-                // Note du film
+
                 item {
                     Text(
                         text = "Note moyenne : ${movie.vote_average}/10",
