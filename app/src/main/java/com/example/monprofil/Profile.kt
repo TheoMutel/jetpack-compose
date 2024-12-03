@@ -50,6 +50,7 @@ fun ProfileScreen(navController : NavController, innerPadding: PaddingValues, wi
         }
         else -> {
 
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -74,6 +75,7 @@ fun ProfileScreen(navController : NavController, innerPadding: PaddingValues, wi
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
+
 
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
@@ -160,7 +162,7 @@ fun Reseaux() {
 @Composable
 fun Demarrer(navController: NavController) {
     Button(
-        onClick = { navController.navigate(DestinationFilm()) },
+        onClick = { navController.navigate(Destinationmusique()) },
         modifier = Modifier.padding(ButtonDefaults.IconSize)
     ) {
         Text(

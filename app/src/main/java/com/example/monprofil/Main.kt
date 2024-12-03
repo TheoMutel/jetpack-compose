@@ -2,7 +2,7 @@ package com.example.monprofil
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.Locale.filter
-
+/*
 open class Piece(val largeur: Float, val longueur: Float, val nom: String){
     fun surface(): Int {
         var result = 0;
@@ -45,3 +45,4 @@ fun main(){
     etudiants.groupBy { it.promo }.forEach { k,v -> println("clé: $k, ${v.map { it.name}}") }
    /* println(etudiants.sumOf { it.matieres })*/
 }
+*/

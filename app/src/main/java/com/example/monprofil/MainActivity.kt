@@ -11,6 +11,7 @@ import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -42,7 +43,7 @@ import java.lang.reflect.Modifier
 @Serializable class DestinationFilm
 @Serializable class DestinationSerie
 @Serializable class DestinationActeur
-
+@Serializable class Destinationmusique
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
@@ -82,7 +83,6 @@ class MainActivity : ComponentActivity() {
                                     }) {
                                         Icon(Icons.Filled.Search, contentDescription = "Rechercher")
                                     }
-
 
                                     if (isSearching && searchQuery.text.isNotEmpty()) {
                                         IconButton(onClick = {
@@ -137,6 +137,17 @@ class MainActivity : ComponentActivity() {
                                     selected = currentDestination?.hasRoute<DestinationActeur>() == true,
                                     onClick = { navController.navigate(DestinationActeur()) })
 
+                                NavigationBarItem(
+                                    icon = {
+                                        Icon(
+                                            imageVector = Icons.Filled.Menu,
+                                            contentDescription = "Catalogue des musique"
+                                        )
+                                    },
+                                    label = { Text("Musique") }, // Label sous l'icône
+                                    selected = currentDestination?.hasRoute<Destinationmusique>() == true,
+                                    onClick = { navController.navigate(Destinationmusique()) })
+
                             }
                         }
                     }
@@ -153,6 +164,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable<DestinationActeur> {
                             ActeurScreen(viewModel = viewModel(), searchQuery = searchQuery.text, navController)
+                        }
+                        composable<Destinationmusique> {
+                            musiqueScreen(viewModel = viewModel(), searchQuery = searchQuery.text, navController)
                         }
                         composable("movie/{movieId}") { backStackEntry ->
                             val movieId = backStackEntry.arguments?.getString("movieId")?.toIntOrNull()
